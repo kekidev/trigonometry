@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #item1 {
+        display: block;
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background: url("Earth_icon_2.png");
+        background-size: cover;
+      }
+
+      #item2 {
+        display: block;
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background: url("sun.png");
+        background-size: cover;
+
+        right: 700px;
+        top: 300px;
+      }
+    </style>
+    <script>
+      function log(arg) {
+        console.log(arg);
+      }
+
+      var posX = 0;
+      var posY = 0;
+      var radiusX = 350;
+      var radiusY = 350;
+      var t = 0;
+      var box1;
+
+      function init() {
+        box1 = document.getElementById("item1");
+        animate();
+      }
+
+      function animate() {
+        t += 0.01;
+
+        posX = 700 + Math.sin(t) * radiusX;
+        posY = 300 + Math.cos(t) * radiusY;
+
+        box1.style.left = posX + "px";
+        box1.style.top = posY + "px";
+
+        requestAnimationFrame(init);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <a href="">source code</a>
+    <div id="item1"></div>
+
+    <div id="item2"></div>
+  </body>
+</html>
